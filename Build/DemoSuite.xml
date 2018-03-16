@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestSuite" verbose="10" parallel="false"
+	thread-count="1">
+
+	<!-- Put IP of localhost/Grid Hub machine -->
+	<parameter name="Browser" value="chrome" />
+
+	
+	<test name="TC_ :  TestNG demo">
+		<classes>
+			<class name="com.toolsqa.test">
+				<methods>
+					<include name="testCase1" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
