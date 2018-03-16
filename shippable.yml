@@ -1,15 +1,3 @@
-selenium-hub:
-  image: selenium/hub
-  ports:
-  - 4444:4444
-
-chrome:
-  image: selenium/node-chrome-debug
-  links:
-  - selenium-hub:hub
-  volumes:
-  - /dev/shm:/dev/shm # Mitigates the Chromium issue described at https://code.google.com/p/chromium/issues/detail?id=519952
-
 language: java
 
 jdk:
@@ -17,9 +5,13 @@ jdk:
 
 build:
    ci:
+    - pip install --upgrade pip
+    - pip install docker
+    - pip install docker-py
+    - pip install docker-compose
+    - docker-compose -version
+    - docker-compose up
     - mkdir -p shippable/testresults
     - sudo mvn -version
     - sudo mvn test
     - "export DISPLAY=:99.0"
-    
-  
