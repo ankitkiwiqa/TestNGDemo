@@ -1,14 +1,16 @@
-version: '4'
+language: java
+
+jdk:
+  - openjdk8
+
 build:
-services:
- selenium-hub:
- image: selenium/hub
- ports:
- - 4444:4444
-chrome:
-image: selenium/node-chrome-debug
-ports:
-- 4499
-links:
-- selenium-hub:hub
- 		
+   ci:
+    - sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    - sudo chmod +x /usr/local/bin/docker-compose
+    - sudo chmod +x /root/src/github.com/ankitkiwiqa/TestNGDemo/Resources/chromedriver.exe
+    - docker-compose -version
+    - docker-compose up -d
+    - mkdir -p shippable/testresults
+    - sudo mvn -version
+    - sudo mvn test
+    - "export DISPLAY=:99.0"

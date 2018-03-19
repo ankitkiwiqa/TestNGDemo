@@ -89,7 +89,7 @@ public class test {
 	@BeforeMethod(alwaysRun=true)
 	public void beforeMethod(@Optional("Browser")String browser) throws MalformedURLException {
 
-		System.setProperty("webdriver.chrome.driver", "Resources\\\\chromedriver_2_33.exe");
+		System.setProperty("webdriver.chrome.driver", "Resources/chromedriver.exe");
 		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--start-maximized");
 		
@@ -99,8 +99,8 @@ public class test {
 		
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-			//driver = new ChromeDriver(option);
+			//driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+			driver = new ChromeDriver(option);
 		}else
 		{
 			driver = new FirefoxDriver(caps);
