@@ -10,6 +10,10 @@ build:
     - sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     - sudo chmod +x /usr/local/bin/docker-compose
     - sudo chmod +x /root/src/github.com/ankitkiwiqa/TestNGDemo/Resources/chromedriver.exe
+    - mkdir -p selenium
+    - cd selenium
+    - curl "http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar" -o "selenium-server-standalone-2.53.1.jar"
+    - java -jar selenium-server-standalone-2.53.1.jar
     - docker-compose -version
     - docker-compose up -d
     - mkdir -p shippable/testresults
