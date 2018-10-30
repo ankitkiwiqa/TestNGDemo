@@ -16,7 +16,6 @@ services:
        - hub
     environment:
       HUB_HOST: hub
-
    hub:
      image: selenium/hub:3.14.0-gallium
      ports:
