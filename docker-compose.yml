@@ -9,9 +9,13 @@ services:
      environment:
       HUB_HOST: hub
    chrome:
-    image: selenium/standalone-chrome
+    image: selenium/node-chrome:3.14.0-gallium
     volumes:
       - /dev/shm:/dev/shm
+    depends_on:
+       - hub
+    environment:
+      HUB_HOST: hub
 
    hub:
      image: selenium/hub:3.14.0-gallium
