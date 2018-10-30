@@ -12,5 +12,5 @@ build:
     - docker-compose up -d
     - mkdir -p shippable/testresults
     - sudo mvn -version
-    - sudo mvn test
-    - "export DISPLAY=:99.0"
+    - xvfb-run --server-args="-ac" sudo mvn test
+    - export DISPLAY=:99.0
