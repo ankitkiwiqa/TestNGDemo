@@ -99,8 +99,8 @@ public class test {
 		
 		if(browser.equalsIgnoreCase("chrome"))
 		{
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
-			//driver = new ChromeDriver(option);
+			//driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
+			driver = new ChromeDriver(option);
 		}else
 		{
 			driver = new FirefoxDriver(caps);
